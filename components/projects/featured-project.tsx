@@ -1,100 +1,109 @@
 import Link from "next/link";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { GitHubIcon } from "@/components/ui/icons";
+import { cn } from "cn";
 import type { Project } from "@/lib/schemas";
 
 interface FeaturedProjectProps {
   project: Project;
+  index: number;
 }
 
-export function FeaturedProject({ project }: FeaturedProjectProps) {
+/** Max tech badges shown on featured cards before overflow indicator */
+const MAX_TECH = 6;
+
+export function FeaturedProject({ project, index }: FeaturedProjectProps) {
+  const visibleTech = project.technologies.slice(0, MAX_TECH);
+  const overflow = project.technologies.length - MAX_TECH;
+
   return (
     <article
-      className="group mb-10 rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-sm sm:p-8"
+      className={cn(
+        // Base card — no shadow, minimal border, clean bg
+        "group relative flex flex-col rounded-xl border border-border bg-card",
+        "p-6 sm:p-8",
+        // Not the last featured project → bottom gap
+        "mb-4 last:mb-0"
+      )}
       aria-label={project.name}
     >
-      {/* Category pill */}
-      <span className="mb-4 inline-block font-mono text-xs uppercase tracking-widest text-muted-foreground">
-        {project.category}
-      </span>
-
-      {/* Name */}
-      <h3 className="mb-2 font-serif text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-        {project.name}
-      </h3>
-
-      {/* Tagline */}
-      <p className="mb-4 text-sm font-medium text-muted-foreground">
-        {project.tagline}
-      </p>
-
-      {/* Problem → Solution */}
-      {project.problem && (
-        <div className="mb-4 space-y-2 border-l-2 border-border pl-4">
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            <span className="font-semibold text-foreground/70">Problem — </span>
-            {project.problem}
-          </p>
-          {project.solution && (
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-foreground/70">Solution — </span>
-              {project.solution}
-            </p>
-          )}
+      {/* ── Header ─────────────────────────────────────────────────────────── */}
+      <header className="mb-5">
+        {/* Category + index */}
+        <div className="mb-3 flex items-center justify-between gap-4">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            {project.category}
+          </span>
+          <span
+            aria-hidden="true"
+            className="font-mono text-[11px] tabular-nums text-muted-foreground/40"
+          >
+            {String(index + 1).padStart(2, "0")}
+          </span>
         </div>
-      )}
 
-      {/* Full description */}
-      <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+        {/* Project title */}
+        <h3 className="mb-2 font-serif text-xl font-semibold leading-tight tracking-tight text-foreground sm:text-2xl">
+          {project.name}
+        </h3>
+
+        {/* Tagline — the one-liner hook */}
+        <p className="text-[13px] font-medium leading-snug text-muted-foreground">
+          {project.tagline}
+        </p>
+      </header>
+
+      {/* ── Description ────────────────────────────────────────────────────── */}
+      {/*
+        We show the description (2–3 sentences), not the raw problem/solution
+        blocks. The full detail lives on /work/[slug].
+      */}
+      <p className="mb-5 flex-1 text-[13px] leading-relaxed text-muted-foreground">
         {project.description}
       </p>
 
-      {/* Tech stack */}
+      {/* ── Technology badges ──────────────────────────────────────────────── */}
       <div className="mb-6 flex flex-wrap gap-1.5">
-        {project.technologies.map((tech) => (
+        {visibleTech.map((tech) => (
           <span
             key={tech}
-            className="rounded-md border border-border bg-muted/50 px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+            className="inline-flex items-center rounded border border-border/60 bg-muted/40 px-2 py-[3px] font-mono text-[10px] leading-none text-muted-foreground transition-colors duration-150 hover:border-border hover:text-foreground/80"
           >
             {tech}
           </span>
         ))}
+        {overflow > 0 && (
+          <span className="inline-flex items-center rounded border border-border/40 bg-muted/20 px-2 py-[3px] font-mono text-[10px] leading-none text-muted-foreground/60">
+            +{overflow}
+          </span>
+        )}
       </div>
 
-      {/* Links */}
-      <div className="flex flex-wrap items-center gap-3">
+      {/* ── CTAs ───────────────────────────────────────────────────────────── */}
+      <footer className="flex flex-wrap items-center gap-2.5">
+        {/* Primary: case study */}
         {project.caseStudyHref && (
           <Link
             href={project.caseStudyHref}
-            className="inline-flex h-8 items-center gap-1.5 rounded-md bg-foreground px-3 text-xs font-medium text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex h-8 items-center gap-1.5 rounded-md bg-foreground px-3.5 text-xs font-medium text-background transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            Case study
-            <ArrowRight className="size-3" aria-hidden="true" />
+            View case study
+            <ArrowRight className="size-3 shrink-0" aria-hidden="true" />
           </Link>
         )}
+
+        {/* Secondary: GitHub */}
         <Link
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border px-3 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={`View ${project.name} on GitHub`}
+          className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border px-3.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <GitHubIcon className="size-3" aria-hidden="true" />
+          <GitHubIcon className="size-3.5 shrink-0" aria-hidden="true" />
           GitHub
         </Link>
-        {project.liveUrl && (
-          <Link
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border px-3 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label={`Live demo of ${project.name}`}
-          >
-            <ExternalLink className="size-3" aria-hidden="true" />
-            Live
-          </Link>
-        )}
-      </div>
+      </footer>
     </article>
   );
 }

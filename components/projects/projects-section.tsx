@@ -12,27 +12,38 @@ export function ProjectsSection({ featured, standard }: ProjectsSectionProps) {
   return (
     <section
       id="work"
-      aria-label="Selected work"
+      aria-label="Projects"
       className="mx-auto max-w-3xl px-4 py-16 sm:px-6"
     >
-      <SectionHeading label="Selected Work" />
+      <SectionHeading label="Projects" />
 
-      {/* Featured — large editorial treatment */}
+      {/* ── Featured projects ─────────────────────────────────────────────── */}
       {featured.length > 0 && (
-        <div className="mb-8">
-          {featured.map((project) => (
-            <FeaturedProject key={project.id} project={project} />
+        <div className="mb-10">
+          {featured.map((project, i) => (
+            <FeaturedProject key={project.id} project={project} index={i} />
           ))}
         </div>
       )}
 
-      {/* Standard — compact card grid */}
+      {/* ── Secondary projects ────────────────────────────────────────────── */}
       {standard.length > 0 && (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {standard.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+        <>
+          {/* Sub-label distinguishing the two tiers */}
+          <div className="mb-5 flex items-center gap-3">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
+              More projects
+            </span>
+            <div className="h-px flex-1 bg-border/40" aria-hidden="true" />
+          </div>
+
+          {/* Responsive grid: 1 col mobile → 2 col sm → 3 col lg */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {standard.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </>
       )}
     </section>
   );
