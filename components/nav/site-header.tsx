@@ -8,8 +8,7 @@ import { useSyncExternalStore } from "react";
 import { cn } from "cn";
 
 const NAV_LINKS = [
-  { label: "Work", href: "/work/certchain" },
-  { label: "Labs", href: "/labs" },
+  { label: "Projects", href: "/#work" },
 ] as const;
 
 const emptySubscribe = () => () => {};
@@ -60,20 +59,27 @@ export function SiteHeader() {
         {/* Nav + Theme */}
         <div className="flex items-center gap-1">
           <nav className="flex items-center gap-0.5 mr-1" aria-label="Main navigation">
-            {NAV_LINKS.map(({ label, href }) => (
-              <Link
-                key={label}
-                href={href}
-                className={cn(
-                  "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-                  pathname === href || pathname.startsWith(href + "/")
-                    ? "bg-muted text-foreground"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                )}
-              >
-                {label}
-              </Link>
-            ))}
+            {NAV_LINKS.map(({ label, href }) => {
+              // Active when: on homepage (/#work anchor) OR on any /work/* case study page
+              const isActive =
+                pathname === "/" ||
+                pathname.startsWith("/work") ||
+                pathname.startsWith("/labs");
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  className={cn(
+                    "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-muted text-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  {label}
+                </Link>
+              );
+            })}
           </nav>
           <ThemeToggle />
         </div>

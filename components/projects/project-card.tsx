@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FlaskConical } from "lucide-react";
+import { FlaskConical, ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/ui/icons";
 import type { Project } from "@/lib/schemas";
 
@@ -23,10 +23,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="group flex flex-col rounded-xl border border-border bg-card p-5 transition-colors duration-200 hover:border-border/80 hover:bg-card/80"
       aria-label={project.name}
     >
-      {/* ── Category ─────────────────────────────────────────────────────── */}
-      <span className="mb-2.5 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">
-        {project.category}
-      </span>
+      {/* ── Category & Meta ──────────────────────────────────────────────── */}
+      <div className="mb-2.5 flex flex-wrap items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">
+        <span>{project.category}</span>
+        {project.role && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>{project.role}</span>
+          </>
+        )}
+        {project.year && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span className="text-muted-foreground/50">{project.year}</span>
+          </>
+        )}
+      </div>
 
       {/* ── Title ────────────────────────────────────────────────────────── */}
       <h3 className="mb-1.5 text-sm font-semibold leading-snug text-foreground">
@@ -78,16 +90,32 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
 
         {/* GitHub */}
-        <Link
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`View ${project.name} on GitHub`}
-          className="inline-flex h-7 items-center gap-1 rounded px-2.5 text-[11px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          <GitHubIcon className="size-3 shrink-0" aria-hidden="true" />
-          GitHub
-        </Link>
+        {project.github && (
+          <Link
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.name} on GitHub`}
+            className="inline-flex h-7 items-center gap-1 rounded px-2.5 text-[11px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <GitHubIcon className="size-3 shrink-0" aria-hidden="true" />
+            GitHub
+          </Link>
+        )}
+
+        {/* Live Demo */}
+        {project.liveUrl && (
+          <Link
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View live demo of ${project.name}`}
+            className="inline-flex h-7 items-center gap-1 rounded px-2.5 text-[11px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <ExternalLink className="size-3 shrink-0" aria-hidden="true" />
+            Live Demo
+          </Link>
+        )}
       </div>
     </article>
   );

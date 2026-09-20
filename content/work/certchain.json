@@ -3,62 +3,129 @@
   "name": "CertChain",
   "slug": "certchain",
   "company": "Personal Project",
+  "category": "Blockchain / Full Stack / Web3",
   "tagline": "Decentralized certificate verification on Ethereum + IPFS",
   "dates": "2025",
   "role": "Full-Stack Developer & Blockchain Engineer",
-  "about": "CertChain is a hybrid on-chain/off-chain decentralized application for issuing and verifying academic certificates. It combines Ethereum smart contracts with IPFS-backed decentralized storage through Pinata.",
+  "about": "CertChain is a hybrid on-chain/off-chain decentralized application for issuing and verifying academic certificates. It combines Ethereum smart contracts with IPFS-backed decentralized storage through Pinata to create a tamper-evident, independently verifiable credential system.",
   "technologies": [
-    "React", "Node.js", "Express", "Ethereum", "Solidity", "Ethers.js",
-    "MetaMask", "IPFS", "Pinata", "Tailwind CSS", "Framer Motion", "PapaParse"
+    "React",
+    "Node.js",
+    "Express",
+    "Ethereum",
+    "Solidity",
+    "Ethers.js",
+    "MetaMask",
+    "IPFS",
+    "Pinata",
+    "Tailwind CSS",
+    "Framer Motion",
+    "PapaParse"
   ],
   "github": "https://github.com/def-hrithik/certchain-ethereum-dapp",
   "liveUrl": null,
-  "nextProject": { "slug": "brevitus", "name": "Brevitus Technology" },
+  "nextProject": {
+    "slug": "brevitus",
+    "name": "Brevitus Technology"
+  },
+  "architecture": {
+    "badge": "Hybrid On-Chain / Off-Chain",
+    "summary": "CertChain decouples file storage from cryptographic verification. Heavy credential assets are persisted via content-addressed IPFS storage, while tamper-evident SHA-256 digests and metadata hashes are permanently written to an Ethereum smart contract.",
+    "flows": [
+      {
+        "title": "Path A: Document Storage (Off-Chain IPFS)",
+        "color": "blue",
+        "nodes": [
+          {
+            "label": "React Client",
+            "description": "Certificate Upload / CSV Parser",
+            "icon": "browser"
+          },
+          {
+            "label": "Express Backend",
+            "description": "Stream to Pinata API",
+            "icon": "server"
+          },
+          {
+            "label": "IPFS / Pinata",
+            "description": "Content-Addressed CID",
+            "icon": "database"
+          }
+        ]
+      },
+      {
+        "title": "Path B: Cryptographic Ledger (Ethereum)",
+        "color": "emerald",
+        "nodes": [
+          {
+            "label": "MetaMask Wallet",
+            "description": "Transaction Signing in Browser",
+            "icon": "wallet"
+          },
+          {
+            "label": "Ethers.js Contract",
+            "description": "SHA-256 + Metadata Hash Storage",
+            "icon": "shield"
+          },
+          {
+            "label": "Ethereum Ledger",
+            "description": "Immutable On-Chain Proof",
+            "icon": "blockchain"
+          }
+        ]
+      }
+    ]
+  },
   "sections": [
     {
       "id": "overview",
       "heading": "Overview",
-      "body": "CertChain is a decentralized application (DApp) for issuing and verifying academic certificates. It uses a hybrid on-chain/off-chain architecture: certificate files are stored on IPFS via Pinata, while their metadata hashes are permanently recorded on the Ethereum blockchain."
+      "body": "CertChain is a decentralized application (DApp) designed to address the vulnerabilities and administrative friction inherent in traditional academic credentialing. By establishing an immutable audit trail on the Ethereum blockchain and persisting credential media on the InterPlanetary File System (IPFS), CertChain provides institutions and employers with a trustless verification mechanism that operates independently of any central issuing authority."
     },
     {
       "id": "problem",
       "heading": "The Problem",
-      "body": "Traditional academic certificates are difficult to verify at scale. Paper certificates can be forged, digital copies can be altered, and the verification process typically requires contacting the issuing institution directly — a slow, manual, and unreliable workflow."
+      "body": "Traditional academic credentials suffer from significant structural weaknesses. Physical paper certificates are susceptible to forgery, loss, and physical degradation. Digital PDF certificates can be altered using basic editing software, and existing background check procedures require contacting issuing universities directly—a manual, labor-intensive process that can take weeks.\n\nCentralized certificate registries also present single-point-of-failure risks: if an issuing institution shuts down, rebrands, or experiences server outages, historical student credentials can become unprovable."
     },
     {
       "id": "why-blockchain",
       "heading": "Why Blockchain?",
-      "body": "Blockchain provides an immutable, publicly verifiable ledger. Once a certificate hash is written to Ethereum, it cannot be altered without changing the hash — making forgery detectable. The decentralized nature means verification does not depend on any single institution's system being online."
+      "body": "Public blockchains provide an append-only, tamper-proof state ledger. When an issuing authority records a cryptographic digest of a certificate on Ethereum, that record cannot be modified, deleted, or backdated by any actor—including the university itself.\n\nBy anchoring certificates to smart contracts, verification becomes decentralized and perpetual: employers and verification agencies can cryptographically validate credentials directly against the blockchain without requiring API keys, recurring subscriptions, or manual institutional correspondence."
     },
     {
       "id": "architecture",
-      "heading": "System Architecture",
-      "body": "The system has two main data paths. The file path: React Frontend → Express Backend → IPFS/Pinata (file storage). The blockchain path: React Frontend → Ethers.js → Ethereum Smart Contract (hash storage). MetaMask handles wallet connection and transaction signing in the browser."
+      "heading": "System Architecture & Data Flows",
+      "body": "CertChain employs a hybrid on-chain/off-chain architecture to optimize both gas costs and storage permanence. Storing multi-megabyte PDF files directly on Ethereum is cost-prohibitive, so CertChain splits the data lifecycle into two synchronized pipelines: an off-chain content storage stream and an on-chain cryptographic ledger stream."
     },
     {
       "id": "issuance",
-      "heading": "Certificate Issuance",
-      "body": "An administrator enters certificate information and uploads the certificate PDF or image. The backend streams the file to IPFS through Pinata, which returns an immutable CID. Metadata is generated, a SHA-256 hash is calculated, and the Certificate ID plus hash are written to the Ethereum smart contract via a MetaMask-signed transaction."
+      "heading": "Certificate Issuance Workflow",
+      "body": "The issuance pipeline begins when an authorized institutional administrator fills in student metadata and attaches the credential file via the React interface.\n\nThe Express backend receives the payload and streams the binary document directly to Pinata's IPFS pinning service, which returns an immutable Content Identifier (CID). Simultaneously, a SHA-256 cryptographic hash of the file and its associated metadata is computed. The administrator confirms the issuance transaction in MetaMask, executing a Solidity contract method that maps the unique Certificate ID to the cryptographic digest on Ethereum."
     },
     {
       "id": "verification",
-      "heading": "Verification",
-      "body": "A user enters a Certificate ID or hash. The system performs a blockchain lookup to retrieve the stored hash, fetches metadata from the backend, validates the SHA-256 hash, and retrieves the original file from IPFS. Three verification layers provide confidence: blockchain reference, SHA-256 metadata hash, and IPFS CID integrity."
+      "heading": "Three-Layer Verification Pipeline",
+      "body": "Verification requires zero privileged access. An employer enters a Certificate ID or scans a certificate QR code. The system executes a three-layer validation check:\n\n1. Smart contract query: Retrieves the registered issuer address, timestamp, and SHA-256 hash from the Ethereum blockchain.\n2. IPFS content retrieval: Fetches the original certificate document from IPFS using the stored CID.\n3. Cryptographic reconciliation: Recalculates the SHA-256 hash of the retrieved document on the client and compares it against the on-chain hash. If even a single byte has changed, the verification immediately fails."
     },
     {
       "id": "batch",
-      "heading": "Batch Issuance",
-      "body": "The system supports batch certificate issuance by parsing CSV data with PapaParse. Multiple certificates can be submitted in a single blockchain transaction, reducing gas costs and administrative overhead."
+      "heading": "Batch Issuance & Gas Optimization",
+      "body": "Graduating classes often require issuing hundreds of credentials simultaneously. Submitting individual blockchain transactions for each student would result in excessive gas fees and repetitive wallet confirmations.\n\nCertChain integrates PapaParse to parse batch CSV files on the frontend. The backend prepares batch records and executes multi-certificate issuance in single smart contract transactions, amortizing base transaction overhead and significantly reducing gas expenditures per student."
     },
     {
       "id": "security",
-      "heading": "Security & Integrity",
-      "body": "Certificate integrity relies on three independent layers: the Ethereum blockchain reference (immutable hash record), SHA-256 metadata hashing (detects tampering), and IPFS CID integrity (content-addressed storage ensures the retrieved file matches exactly what was stored). A QR code encodes the verification URL for easy physical-to-digital bridging."
+      "heading": "Security & Integrity Model",
+      "body": "System integrity is enforced through cryptographic boundaries:\n\n- Role-based smart contract permissions ensure only whitelisted institutional wallet addresses can invoke issuance functions.\n- Content-addressing via IPFS guarantees that any modification to a hosted certificate produces an entirely different CID, immediately invalidating the link.\n- Cryptographic SHA-256 hashing bridges off-chain storage with on-chain consensus, ensuring end-to-end immutability."
     },
     {
       "id": "challenges",
-      "heading": "Technical Challenges",
-      "body": "Coordinating asynchronous operations across three systems — the React frontend, Express backend, and Ethereum node via MetaMask — required careful state management to handle transaction confirmations, IPFS upload progress, and error states gracefully."
+      "heading": "Technical Challenges & State Coordination",
+      "body": "A central challenge was coordinating asynchronous operations across three disparate environments: client-side React UI state, Node.js backend streaming, and Ethereum network confirmations through MetaMask.\n\nBlockchain transactions introduce unpredictable confirmation latencies and potential network rejections. The frontend was engineered with optimistic UI feedback, transaction status polling via Ethers.js, and graceful failure handling during IPFS uploads to prevent orphaned state."
+    },
+    {
+      "id": "outcome",
+      "heading": "Outcome & Project Impact",
+      "body": "CertChain demonstrates an end-to-end, production-grade Web3 application combining decentralized consensus with user-friendly web interfaces. The project showcases how blockchain and peer-to-peer storage can solve tangible real-world problems in academic verification, and was developed in the context of the Build with AI Solution Challenge 2026."
     }
   ]
 }

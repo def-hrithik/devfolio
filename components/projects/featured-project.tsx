@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/ui/icons";
 import { cn } from "cn";
 import type { Project } from "@/lib/schemas";
@@ -29,11 +29,17 @@ export function FeaturedProject({ project, index }: FeaturedProjectProps) {
     >
       {/* ── Header ─────────────────────────────────────────────────────────── */}
       <header className="mb-5">
-        {/* Category + index */}
+        {/* Category + year + index */}
         <div className="mb-3 flex items-center justify-between gap-4">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-            {project.category}
-          </span>
+          <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <span>{project.category}</span>
+            {project.year && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>{project.year}</span>
+              </>
+            )}
+          </div>
           <span
             aria-hidden="true"
             className="font-mono text-[11px] tabular-nums text-muted-foreground/40"
@@ -103,6 +109,20 @@ export function FeaturedProject({ project, index }: FeaturedProjectProps) {
           <GitHubIcon className="size-3.5 shrink-0" aria-hidden="true" />
           GitHub
         </Link>
+
+        {/* Live Demo */}
+        {project.liveUrl && (
+          <Link
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View live demo of ${project.name}`}
+            className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border px-3.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <ExternalLink className="size-3.5 shrink-0" aria-hidden="true" />
+            Live Demo
+          </Link>
+        )}
       </footer>
     </article>
   );

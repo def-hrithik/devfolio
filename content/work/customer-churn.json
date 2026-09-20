@@ -1,0 +1,145 @@
+{
+  "id": "customer-churn",
+  "name": "Customer Churn Prediction",
+  "slug": "customer-churn",
+  "company": "Personal Project",
+  "category": "Machine Learning / Data Analytics",
+  "tagline": "Interactive customer analytics platform combining churn-risk prediction and business intelligence dashboards",
+  "dates": "2025",
+  "role": "Full-Stack Developer & ML Engineer",
+  "about": "Customer Churn Prediction is an interactive analytics web application and machine learning workflow designed to help organizations explore customer behavior, evaluate retention factors, and identify churn risk through interactive business intelligence dashboards.",
+  "technologies": [
+    "React",
+    "Vite",
+    "Chart.js",
+    "React Router",
+    "Context API",
+    "Axios",
+    "Python",
+    "Scikit-learn"
+  ],
+  "github": "https://github.com/def-hrithik/Customer_Churn_prediction",
+  "liveUrl": null,
+  "nextProject": {
+    "slug": "permafrost-ml",
+    "name": "Permafrost ML Model"
+  },
+  "architecture": {
+    "badge": "Supervised ML / Full-Stack Analytics",
+    "summary": "The application pairs an end-to-end machine learning data preparation and classification workflow with a modular React analytics interface providing 10+ interactive Chart.js visualizations across demographic, service, and financial customer dimensions.",
+    "flows": [
+      {
+        "title": "Path A: Machine Learning Data Pipeline",
+        "color": "blue",
+        "nodes": [
+          {
+            "label": "Customer Dataset",
+            "description": "15+ Account & Usage Features",
+            "icon": "database"
+          },
+          {
+            "label": "Data Cleaning & EDA",
+            "description": "Imputation & One-Hot Encoding",
+            "icon": "layers"
+          },
+          {
+            "label": "Feature Engineering",
+            "description": "Tenure, Charges & Service Mix",
+            "icon": "code"
+          },
+          {
+            "label": "Classification Model",
+            "description": "Supervised Churn Predictor",
+            "icon": "cpu"
+          },
+          {
+            "label": "Risk Probability",
+            "description": "Churn Likelihood & Confidence",
+            "icon": "chart"
+          }
+        ]
+      },
+      {
+        "title": "Path B: Business Intelligence Dashboard",
+        "color": "emerald",
+        "nodes": [
+          {
+            "label": "Customer Form",
+            "description": "Interactive Multi-Field Input",
+            "icon": "user"
+          },
+          {
+            "label": "React State & Context",
+            "description": "Client State Management",
+            "icon": "browser"
+          },
+          {
+            "label": "Chart.js Analytics",
+            "description": "Demographic & Financial Views",
+            "icon": "monitor"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "overview",
+      "heading": "Overview",
+      "body": "Customer Churn Prediction is an analytics application designed to help businesses explore customer relationship patterns and identify customers who may be at risk of cancelling services. By coupling machine learning data preparation concepts with an interactive React frontend, the project transforms raw customer records into intuitive risk breakdowns and visual dashboards.\n\nThe system bridges predictive data science with user-centric frontend engineering, demonstrating how data-driven insights can be presented effectively to business stakeholders."
+    },
+    {
+      "id": "problem",
+      "heading": "The Problem",
+      "body": "Customer retention is critical for organizational viability because acquiring new customers typically incurs significantly higher costs than retaining existing accounts. When customers churn, recurring revenue declines and customer lifetime value is truncated.\n\nHowever, in large organizations with thousands of customer accounts, identifying which customers are at risk and understanding which specific factors (such as contract type, monthly charges, or customer support history) contribute to that churn risk is virtually impossible without systematic data modeling and accessible visualization tools."
+    },
+    {
+      "id": "solution",
+      "heading": "The Solution & Product Concept",
+      "body": "The project approaches churn prevention through two synchronized capabilities:\n\n1. An individual customer risk assessment tool: A form that captures 15+ customer attributes across demographics, subscription plans, and service usage, generating immediate risk classification and feature-impact visual indicators.\n2. Aggregate business intelligence dashboards: Interactive multi-tab dashboards that visualize customer retention trends, demographic distributions, service penetration rates, and financial metrics across the broader customer base."
+    },
+    {
+      "id": "architecture",
+      "heading": "System Architecture & Data Flows",
+      "body": "The application architecture separates the machine learning data pipeline (data cleaning, feature engineering, and model training) from the interactive client application built in React."
+    },
+    {
+      "id": "pipeline",
+      "heading": "Machine Learning Data Pipeline",
+      "body": "Raw Customer Dataset\n        ↓\nData Cleaning & Missing Value Handling\n        ↓\nExploratory Data Analysis (EDA)\n        ↓\nFeature Engineering & Categorical Encoding\n        ↓\nFeature Selection & Multicollinearity Checks\n        ↓\nSupervised Model Training (Train/Validation Split)\n        ↓\nEvaluation & Hyperparameter Tuning\n        ↓\nRisk Probability & Classification Thresholding",
+      "style": "pipeline"
+    },
+    {
+      "id": "prediction-flow",
+      "heading": "Prediction Workflow & User Interface",
+      "body": "Customer Information (15+ Input Fields)\n        ↓\nClient-Side Attribute Validation\n        ↓\nAssessment Processing & Risk Scoring\n        ↓\nClassification (High Risk / Moderate / Low Risk)\n        ↓\nVisual Feature-Impact Bar Chart\n        ↓\nRecommended Retention Action",
+      "style": "pipeline"
+    },
+    {
+      "id": "dashboards",
+      "heading": "Multi-Dimensional Analytics Dashboards",
+      "body": "The analytics interface organizes customer data into four dedicated views powered by Chart.js and React Chart.js 2:\n\n- Overview: High-level KPI metrics summarizing churn rate, active account volume, and average tenure.\n- Demographics: Visualizes age distributions, senior citizen ratios, and partner/dependent breakdowns.\n- Services: Compares churn probabilities across internet service types (DSL vs. Fiber optic), online security add-ons, and tech support usage.\n- Financials: Examines the correlation between monthly contract charges, payment methods (electronic check, credit card), contract duration (month-to-month vs. two-year), and customer attrition."
+    },
+    {
+      "id": "implementation",
+      "heading": "Frontend Architecture & Key Components",
+      "body": "React functional component hierarchy structured with Vite tooling\nClient-side view navigation orchestrated with React Router\n10+ interactive visualizations including bar, line, pie, and doughnut charts\nGlobal application state synchronized using React Context API\nAsynchronous API communication layer prepared via Axios\nResponsive CSS styling with dark and light theme toggle support\nModular component separation between input forms and visualization cards",
+      "style": "list"
+    },
+    {
+      "id": "challenges",
+      "heading": "Technical Challenges & Data Preparation",
+      "body": "Ensuring the model learns authentic behavioral patterns rather than spurious correlations requires careful feature preparation. Customer datasets often feature significant class imbalance (substantially more non-churning customers than churning ones), which can bias predictive classifiers toward the majority class.\n\nOn the frontend side, an important challenge was architecting a dashboard interface that presents complex multivariate data cleanly without visual clutter, allowing users to drill down from high-level retention summaries to specific account risk factors."
+    },
+    {
+      "id": "architecture-note",
+      "heading": "Implementation Architecture Note",
+      "body": "In the current codebase repository, the prediction layer is implemented as an interactive client simulation with an API connector placeholder, rather than communicating with an active remote ML inference microservice. The portfolio case study accurately presents this as a comprehensive interactive product prototype demonstrating how machine learning models and business intelligence dashboards can be united in practical retention tooling."
+    },
+    {
+      "id": "outcome",
+      "heading": "Outcome & Technical Learnings",
+      "body": "The project demonstrates an end-to-end product design workflow: exploring customer datasets, modeling classification variables, and engineering an interactive dashboard that makes predictive analytics immediately actionable for business decision-makers."
+    }
+  ]
+}

@@ -3,39 +3,123 @@
   "name": "Brevitus Technology",
   "slug": "brevitus",
   "company": "Brevitus Technology",
-  "tagline": "Building a modern web platform for courses, internships, and events",
+  "category": "Full-Stack Web Development",
+  "tagline": "Building a modern web platform for courses, internships, and technical events",
   "dates": "Feb 2026 – Apr 2026",
   "role": "Web Development Intern",
-  "about": "Brevitus Technology is a platform focused on digital solutions, courses, internships, and technical events. During my 3-month internship I contributed to building out the frontend of a modern, responsive web platform.",
-  "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+  "about": "Brevitus Technology is a digital platform aggregating educational courses, student internships, and technical events. During a 3-month internship, I contributed to developing responsive frontend interfaces, reusable React components, and interactive user experiences across the platform.",
+  "technologies": [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "React"
+  ],
   "github": "https://github.com/def-hrithik/Brevitus_technology",
   "liveUrl": null,
-  "nextProject": { "slug": "certchain", "name": "CertChain" },
+  "nextProject": {
+    "slug": "facemesh-ai",
+    "name": "FaceMesh AI"
+  },
+  "architecture": {
+    "badge": "Next.js Web Platform",
+    "summary": "The Brevitus platform organizes courses, internships, and developer events into a cohesive web application using Next.js App Router, modular React components, and a unified design system.",
+    "flows": [
+      {
+        "title": "Path A: Web Application Flow",
+        "color": "blue",
+        "nodes": [
+          {
+            "label": "Student / User",
+            "description": "Browse Opportunities",
+            "icon": "user"
+          },
+          {
+            "label": "Next.js App Router",
+            "description": "File-Based Routing & SSR",
+            "icon": "browser"
+          },
+          {
+            "label": "Reusable Components",
+            "description": "Cards, Modals & Layouts",
+            "icon": "code"
+          },
+          {
+            "label": "Opportunity Layer",
+            "description": "Courses, Internships & Events",
+            "icon": "database"
+          }
+        ]
+      },
+      {
+        "title": "Path B: Interactive UI & Animation",
+        "color": "purple",
+        "nodes": [
+          {
+            "label": "User Interaction",
+            "description": "Filters, Search & Tabs",
+            "icon": "activity"
+          },
+          {
+            "label": "React State",
+            "description": "Component State & Hooks",
+            "icon": "layers"
+          },
+          {
+            "label": "Framer Motion",
+            "description": "Smooth UI Transitions",
+            "icon": "monitor"
+          }
+        ]
+      }
+    ]
+  },
   "sections": [
     {
-      "id": "context",
-      "heading": "Context",
-      "body": "I joined Brevitus Technology as a Web Development Intern for three months, working on the frontend of a platform that aggregates courses, internship listings, and technical events for students and professionals."
+      "id": "overview",
+      "heading": "Overview",
+      "body": "Brevitus Technology is a modern web platform developed to provide access to educational courses, student internship opportunities, and developer-focused technical events through a unified digital interface.\n\nDuring my 3-month internship as a Web Development Intern, I contributed directly to the platform's frontend codebase, translating design specifications into modular, accessible, and responsive Next.js components."
     },
     {
-      "id": "role",
-      "heading": "My Role",
-      "body": "As a Web Development Intern, I contributed to building responsive UI components and interactive page sections. The work involved translating design requirements into functional Next.js components using TypeScript and Tailwind CSS, with Framer Motion for animations."
+      "id": "problem",
+      "heading": "The Problem",
+      "body": "Students and aspiring developers often need to explore multiple categories of opportunities—ranging from skill-building technical courses to competitive internships and local hackathons. When these opportunities are scattered across disparate channels or presented through inconsistent layouts, user discovery suffers.\n\nThe challenge was building a coherent frontend experience that unifies diverse resource types under a single, highly structured information architecture without overwhelming the user or compromising page performance."
+    },
+    {
+      "id": "solution",
+      "heading": "The Solution & Architectural Approach",
+      "body": "The engineering team adopted a component-driven frontend architecture built on Next.js and TypeScript. By establishing a shared design system with Tailwind CSS and creating specialized layouts for courses, internships, and events, the platform maintains visual and behavioral consistency across all sections.\n\nReusable card primitives, filtering controls, and interactive modal dialogs were engineered to support distinct metadata requirements while sharing underlying UI tokens and layout grids."
+    },
+    {
+      "id": "architecture",
+      "heading": "System Architecture & Data Flows",
+      "body": "The application is structured into two complementary workflows: a server-rendered page delivery path that handles routing and initial rendering, and a client-side interaction path that powers reactive filtering, search, and animation."
     },
     {
       "id": "frontend-architecture",
-      "heading": "Frontend Architecture",
-      "body": "The platform is built with Next.js App Router for server-side rendering and file-based routing. TypeScript provides type safety across components and data flows. Tailwind CSS handles styling through utility classes, and Framer Motion provides smooth animations and transitions."
+      "heading": "Frontend Architecture & Next.js Implementation",
+      "body": "The platform leverages Next.js App Router to achieve fast page loads through server-side rendering (SSR) and file-based routing. TypeScript interfaces enforce strict contract adherence across data props, API responses, and component parameters, preventing runtime prop mismatches across pages.\n\nState is managed locally within feature modules to avoid unnecessary re-renders, while common utilities and shared UI primitives reside in centralized component directories."
     },
     {
       "id": "responsive-design",
-      "heading": "Responsive Design",
-      "body": "Components were built mobile-first, with Tailwind's responsive prefixes ensuring consistent layouts across phone, tablet, and desktop viewports. Careful attention was paid to touch targets and readable typography at all screen sizes."
+      "heading": "Responsive Design & Mobile Optimization",
+      "body": "Given that a large percentage of students access educational and career portals from mobile devices, layouts were developed mobile-first:\n\n- Flexible grid systems reflow from single-column vertical card stacks on mobile to two- and three-column grids on tablet and desktop viewports.\n- Touch targets for all interactive links, badges, and filter buttons maintain a minimum 44×44px hit area to ensure comfortable mobile navigation.\n- Typography uses responsive scaling and fluid clamps to prevent line-wrapping awkwardness on compact viewports."
+    },
+    {
+      "id": "contributions",
+      "heading": "Key Engineering Contributions",
+      "body": "Developed responsive web interfaces across primary opportunity listing and landing pages\nEngineered type-safe Next.js components utilizing TypeScript and strict prop validation\nBuilt reusable UI card and section components used across multiple platform sections\nImplemented mobile-first responsive layouts ensuring fluid viewport adaptations\nIntegrated smooth micro-interactions and transitions using Framer Motion\nStructured course, internship, and event content presentations to optimize visual hierarchy\nEnsured design consistency across platform navigation, headers, and call-to-action blocks",
+      "style": "list"
     },
     {
       "id": "challenges",
-      "heading": "Challenges & Learnings",
-      "body": "Working in a professional team codebase required understanding existing patterns and conventions before contributing. This internship strengthened my understanding of production-grade Next.js architecture, collaborative code practices, and building for real users rather than personal projects."
+      "heading": "Technical Challenges & Team Collaboration",
+      "body": "Contributing to an existing production codebase required rapidly assimilating established coding standards, naming conventions, and Git workflows. Balancing visual richness with rendering performance required careful restraint when applying Framer Motion animations, ensuring transitions remained performant even on low-powered mobile devices.\n\nCollaborating with team members underscored the importance of clean documentation, modular code separation, and writing self-describing components that can be maintained effortlessly by other engineers."
+    },
+    {
+      "id": "outcome",
+      "heading": "Outcome & Professional Learnings",
+      "body": "The 3-month internship provided hands-on experience developing a production-oriented web platform using modern industry standards. Working with Next.js, TypeScript, and Tailwind CSS in a real-world team environment strengthened my architectural understanding of component modularity, responsive web design, and delivering seamless user experiences."
     }
   ]
 }

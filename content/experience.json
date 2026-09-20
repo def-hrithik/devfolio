@@ -1,5 +1,17 @@
 [
   {
+    "id": "gdg-oncampus-lead",
+    "organization": "GDG On Campus MGMCET",
+    "role": "GDG On Campus Lead",
+    "type": "leadership",
+    "startDate": "2026-09",
+    "endDate": "present",
+    "displayDuration": "Sep 2026 – Present",
+    "description": "Leading the Google Developer Group On Campus community at MGMCET, driving technical initiatives, organizing developer-focused events and workshops, and fostering a collaborative environment for students to learn, build, and explore emerging technologies.",
+    "technologies": ["Google Developer Groups", "Community Leadership", "Technical Events", "Developer Relations"],
+    "evidence": { "label": "Community Profile", "type": "certificate" }
+  },
+  {
     "id": "brevitus",
     "organization": "Brevitus Technology",
     "role": "Web Development Intern",
@@ -14,7 +26,7 @@
     "caseStudyHref": "/work/brevitus"
   },
   {
-    "id": "gdg-mgmcet",
+    "id": "gdg-mgmcet-core",
     "organization": "GDG MGMCET",
     "role": "Technical Core Member",
     "type": "community",
