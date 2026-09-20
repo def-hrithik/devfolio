@@ -21,7 +21,7 @@ export function CaseStudyHeader({ work }: CaseStudyHeaderProps) {
 
       {/* Company + role + dates */}
       <div className="mb-4 flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
-        <span>{work.company}</span>
+        <span>{work.category ?? work.company}</span>
         <span aria-hidden="true">·</span>
         <span>{work.role}</span>
         <span aria-hidden="true">·</span>

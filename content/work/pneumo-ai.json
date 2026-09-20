@@ -1,0 +1,159 @@
+{
+  "id": "pneumo-ai",
+  "name": "Pneumo-AI",
+  "slug": "pneumo-ai",
+  "company": "Healthcare AI Research",
+  "category": "Deep Learning / Medical Image Classification",
+  "tagline": "Deep learning application for classifying chest X-rays using VGG19 transfer learning",
+  "dates": "2025",
+  "role": "ML Engineer",
+  "about": "Pneumo-AI is an end-to-end deep learning project exploring automated chest X-ray classification into NORMAL and PNEUMONIA categories. The system integrates a VGG19 transfer-learning pipeline with an interactive Streamlit analytics dashboard for model predictions and visual evaluation.",
+  "technologies": [
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "VGG19",
+    "Transfer Learning",
+    "Streamlit",
+    "NumPy",
+    "Pillow",
+    "Plotly"
+  ],
+  "github": "https://github.com/def-hrithik/pneumo-ai",
+  "liveUrl": null,
+  "nextProject": {
+    "slug": "customer-churn",
+    "name": "Customer Churn Prediction"
+  },
+  "architecture": {
+    "badge": "Deep Learning / Transfer Learning",
+    "summary": "An automated medical image classification workflow integrating an image preprocessing pipeline, a VGG19 transfer learning feature extractor with custom classification head, and a Streamlit dashboard with Plotly visual analytics.",
+    "flows": [
+      {
+        "title": "Path A: Diagnostic Screening Pipeline",
+        "color": "blue",
+        "nodes": [
+          {
+            "label": "Chest Radiograph",
+            "description": "X-Ray Image File",
+            "icon": "file"
+          },
+          {
+            "label": "Streamlit Upload",
+            "description": "Interactive File Receiver",
+            "icon": "upload"
+          },
+          {
+            "label": "Image Preprocessor",
+            "description": "128×128, 3-Ch, Normalized",
+            "icon": "layers"
+          },
+          {
+            "label": "VGG19 Backbone",
+            "description": "Pretrained Feature Extractor",
+            "icon": "cpu"
+          },
+          {
+            "label": "Classification Head",
+            "description": "Dense + Softmax Layers",
+            "icon": "model"
+          },
+          {
+            "label": "Inference Output",
+            "description": "NORMAL / PNEUMONIA + Conf",
+            "icon": "shield"
+          }
+        ]
+      },
+      {
+        "title": "Path B: Visual Analytics & Model Evaluation",
+        "color": "amber",
+        "nodes": [
+          {
+            "label": "Validation Dataset",
+            "description": "Curated Evaluation Radiographs",
+            "icon": "database"
+          },
+          {
+            "label": "Performance Evaluator",
+            "description": "Accuracy, Precision, Recall, F1",
+            "icon": "chart"
+          },
+          {
+            "label": "Plotly Visualizations",
+            "description": "Confusion Matrix & ROC Curves",
+            "icon": "monitor"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "overview",
+      "heading": "Overview",
+      "body": "Pneumo-AI is an applied deep learning project designed to evaluate automated image classification of pediatric and adult chest radiographs. By pairing a convolutional neural network architecture with transfer learning techniques, the project explores how computational vision can assist with preliminary radiographic categorization into NORMAL or PNEUMONIA classifications.\n\nThe project incorporates an end-to-end user application developed with Streamlit, enabling users to upload radiographs, trigger inference, inspect model confidence scores, and review detailed analytical metrics."
+    },
+    {
+      "id": "problem",
+      "heading": "The Problem",
+      "body": "Pneumonia remains a leading cause of hospital admissions and mortality worldwide. Accurate diagnosis depends heavily on radiological interpretation of chest X-rays, identifying consolidation, ground-glass opacities, or pleural effusions.\n\nIn resource-constrained clinical settings or rural healthcare centers where certified radiologists may not be available around the clock, manual interpretation workflows create diagnostic bottlenecks. Developing reliable computer-assisted screening workflows provides an avenue to accelerate triage and support clinical decision-making."
+    },
+    {
+      "id": "solution",
+      "heading": "The Solution & Transfer Learning Strategy",
+      "body": "Training a deep convolutional neural network entirely from scratch on medical imagery frequently leads to overfitting due to limited dataset sizes and high anatomical variance. Pneumo-AI mitigates this through transfer learning using VGG19 pretrained on the extensive ImageNet dataset.\n\nThe feature extraction layers are frozen to leverage general low-level geometric and textural filters (edges, textures, contours), while custom fully-connected dense layers are appended and fine-tuned specifically to distinguish radiographic opacities characteristic of pneumonia."
+    },
+    {
+      "id": "architecture",
+      "heading": "System Architecture & Data Flows",
+      "body": "The application separates image acquisition and transformation from neural inference, while maintaining a parallel evaluation pipeline for inspecting confusion matrices and loss curves."
+    },
+    {
+      "id": "pipeline",
+      "heading": "Technical Pipeline & Image Processing",
+      "body": "Chest Radiograph (DICOM / PNG / JPEG)\n        ↓\nStreamlit Drag-and-Drop Upload\n        ↓\nDimensions Resized to 128 × 128\n        ↓\n3-Channel Grayscale-to-RGB Conversion\n        ↓\nPixel Normalization (Scaling to [0, 1])\n        ↓\nVGG19 Feature Extraction Backbone\n        ↓\nClassification Head (Dense + Softmax)\n        ↓\nNORMAL vs PNEUMONIA Prediction\n        ↓\nConfidence Score & Plotly Visual Analytics",
+      "style": "pipeline"
+    },
+    {
+      "id": "model-architecture",
+      "heading": "Neural Network Architecture",
+      "body": "Input Layer (128 × 128 × 3 RGB Tensor)\n        ↓\nVGG19 Convolutional Blocks (Pretrained ImageNet)\n  - 16 Convolutional Layers (3×3 Filters)\n  - Max Pooling Layers (2×2 Stride)\n        ↓\nFlatten Layer (Vector Dimension: 4608)\n        ↓\nDense Layer (4608 Units + ReLU Activation)\n        ↓\nDense Output Layer (2 Units + Softmax Activation)\n        ↓\nClass Probabilities: [P(Normal), P(Pneumonia)]",
+      "style": "pipeline",
+      "note": "Architecture parameters are documented in the project's repository and implemented with TensorFlow Keras."
+    },
+    {
+      "id": "interface",
+      "heading": "Interactive Streamlit Analytics Dashboard",
+      "body": "To make model outputs transparent and interpretable, the application is presented via an interactive Streamlit dashboard structured into three distinct views:\n\n1. Prediction View: Allows users to drag-and-drop chest X-ray images, triggering automated preprocessing and displaying real-time predictions with categorical confidence meters.\n2. Data Analytics View: Explores the training dataset distribution, class balances, and sample inspection across both target classes.\n3. Performance View: Integrates Plotly charts visualizing validation accuracy, loss progression over epochs, confusion matrices, and precision/recall trade-offs."
+    },
+    {
+      "id": "features",
+      "heading": "Key Features & Workflow Capabilities",
+      "body": "Drag-and-drop chest X-ray image upload interface\nAutomated image standardization (resizing, channel expansion, normalization)\nReal-time deep learning inference using TensorFlow / Keras\nConfidence score indicators and class probability distributions\nInteractive confusion matrix displaying false positive and false negative rates\nTraining and validation curve visualizations\nModel-performance metrics dashboard powered by Plotly\nCached model weights utilizing Streamlit cache mechanisms for instant execution",
+      "style": "list"
+    },
+    {
+      "id": "results",
+      "heading": "Results & Evaluation Metrics",
+      "body": "Test Accuracy: ~91%",
+      "style": "metrics",
+      "note": "The project reports approximately 91% test accuracy on its test split. The repository dashboard exposes detailed metrics including precision, recall, F1 score, specificity, and confusion matrix analytics."
+    },
+    {
+      "id": "challenges",
+      "heading": "Technical Challenges & Input Normalization",
+      "body": "Medical imaging datasets present significant challenges with data heterogeneity: varying resolutions, varying exposures, differences in patient positioning, and artifacts from medical equipment.\n\nA primary challenge was engineering a deterministic preprocessing pipeline in Python that reliably standardizes disparate input images into uniform 128×128 tensors with proper numerical scaling without distorting critical diagnostic lung parenchyma."
+    },
+    {
+      "id": "disclaimer",
+      "heading": "Educational Scope & Medical Disclaimer",
+      "body": "This project is developed exclusively for academic, engineering, and educational purposes to demonstrate deep learning transfer learning techniques on computer vision datasets.\n\nIt is not a clinically validated diagnostic tool and must not be used as a substitute for professional medical evaluation, diagnosis, or radiological assessment by licensed practitioners."
+    },
+    {
+      "id": "outcome",
+      "heading": "Outcome & Research Learnings",
+      "body": "Pneumo-AI demonstrates how convolutional transfer learning pipelines can be combined with user-friendly web interfaces to produce interactive machine learning tooling. The project highlighted the practical engineering challenges of preparing medical datasets, managing inference latency, and designing clear interfaces for probabilistic models."
+    }
+  ]
+}

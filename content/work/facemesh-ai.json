@@ -1,0 +1,141 @@
+{
+  "id": "facemesh-ai",
+  "name": "FaceMesh AI",
+  "slug": "facemesh-ai",
+  "company": "Personal Project",
+  "category": "Computer Vision / Browser ML",
+  "tagline": "Real-time facial landmark detection running entirely in the browser using TensorFlow.js and MediaPipe Face Mesh",
+  "dates": "2025",
+  "role": "ML Engineer & Full-Stack Developer",
+  "about": "FaceMesh AI is a browser-based computer vision application that detects and tracks 468 3D facial landmarks in real time. Running inference directly on the user's device via TensorFlow.js and WebGL, the application provides zero-latency facial tracking with complete on-device privacy.",
+  "technologies": [
+    "React",
+    "TensorFlow.js",
+    "MediaPipe Face Mesh",
+    "WebGL",
+    "Vite",
+    "Tailwind CSS",
+    "Framer Motion",
+    "react-webcam"
+  ],
+  "github": "https://github.com/def-hrithik/Face-MeshAI",
+  "liveUrl": null,
+  "nextProject": {
+    "slug": "pneumo-ai",
+    "name": "Pneumo-AI"
+  },
+  "architecture": {
+    "badge": "Client-Side Edge AI / WebGL",
+    "summary": "Inference executes entirely inside the browser using WebGL acceleration and TensorFlow.js, mapping 468 dense 3D facial coordinates from local webcam feeds without streaming video frames to an external server.",
+    "flows": [
+      {
+        "title": "Path A: Real-Time Vision Pipeline",
+        "color": "blue",
+        "nodes": [
+          {
+            "label": "Webcam Feed",
+            "description": "Local Video Stream",
+            "icon": "camera"
+          },
+          {
+            "label": "Frame Preprocessor",
+            "description": "192×192 RGB Tensor Normalization",
+            "icon": "browser"
+          },
+          {
+            "label": "TensorFlow.js Engine",
+            "description": "Converted MediaPipe Face Mesh",
+            "icon": "cpu"
+          },
+          {
+            "label": "468 Facial Landmarks",
+            "description": "Dense 3D Coordinate Topology",
+            "icon": "eye"
+          },
+          {
+            "label": "HTML5 Canvas",
+            "description": "Real-Time 30+ FPS Mesh Overlay",
+            "icon": "monitor"
+          }
+        ]
+      },
+      {
+        "title": "Path B: Coordinate Extraction & Serialization",
+        "color": "emerald",
+        "nodes": [
+          {
+            "label": "3D Point Cloud",
+            "description": "Normalized X, Y, Z Tensors",
+            "icon": "layers"
+          },
+          {
+            "label": "JSON Serializer",
+            "description": "Mesh Topology Formatting",
+            "icon": "code"
+          },
+          {
+            "label": "Client Export",
+            "description": "Downstream AR / Animation Use",
+            "icon": "file"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "overview",
+      "heading": "Overview",
+      "body": "FaceMesh AI is a browser-based computer vision application that detects and tracks 468 three-dimensional facial landmarks in real time. By porting and optimizing the MediaPipe Face Mesh model for TensorFlow.js, the system executes high-fidelity facial geometry estimation entirely inside the client's web browser.\n\nBecause all tensor operations and matrix calculations are handled locally using WebGL hardware acceleration, user video feeds never leave the device, eliminating both server infrastructure costs and privacy vulnerabilities."
+    },
+    {
+      "id": "problem",
+      "heading": "The Problem",
+      "body": "Traditional computer vision pipelines for facial tracking rely heavily on server-side inference or dedicated hardware SDKs. Streaming continuous video streams to remote servers introduces latency spikes, bandwidth saturation, and significant user privacy risks.\n\nConversely, bringing deep convolutional vision models into the web browser often suffers from sluggish framerates, heavy memory consumption, and frame stutter if models are not properly quantized or accelerated."
+    },
+    {
+      "id": "solution",
+      "heading": "The Solution & On-Device ML Approach",
+      "body": "FaceMesh AI overcomes these trade-offs by deploying a converted, quantized MediaPipe Face Mesh model directly onto TensorFlow.js with WebGL shader backends.\n\nThe application taps into the local webcam stream via HTML5 getUserMedia and react-webcam, preprocesses incoming frames into normalized tensors, and runs forward inference within the browser execution context. The resulting 468 landmark coordinates are rendered directly onto an aligned HTML5 canvas overlay at smooth interactive framerates."
+    },
+    {
+      "id": "architecture",
+      "heading": "System Architecture & Data Flows",
+      "body": "The application architecture separates video acquisition, tensor transformations, neural network inference, and graphic rendering into an efficient, unidirectional processing loop."
+    },
+    {
+      "id": "pipeline",
+      "heading": "Technical Pipeline & Input Geometry",
+      "body": "Webcam Video Stream\n        ↓\nFrame Capture (requestAnimationFrame)\n        ↓\nTensor Normalization (192 × 192 × 3 RGB)\n        ↓\nTensorFlow.js WebGL Inference Engine\n        ↓\n468 3D Landmark Coordinates (X, Y, Z)\n        ↓\nReal-Time HTML5 Canvas Mesh Rendering\n        ↓\nJSON Coordinate Export",
+      "style": "pipeline",
+      "note": "The model accepts a 192 × 192 × 3 RGB input tensor and outputs normalized 3D landmark coordinates, facial contour vectors, and a face detection confidence score."
+    },
+    {
+      "id": "inference",
+      "heading": "Browser Inference & Model Conversion",
+      "body": "Running inference in the browser required porting the native MediaPipe TFLite model into a TensorFlow.js format. This conversion process involved extracting the underlying computational graph, mapping custom operation kernels, transposing weight tensors from channel-first to channel-last configurations, and generating sharded binary weight manifests.\n\nBy configuring TensorFlow.js to use the WebGL backend, operations are offloaded directly to the client's graphics card through fragment shaders, enabling real-time matrix multiplications without blocking the main browser thread."
+    },
+    {
+      "id": "landmark-detection",
+      "heading": "Dense 3D Facial Landmark Tracking",
+      "body": "Unlike basic facial bounding-box detectors, FaceMesh AI estimates a dense 3D surface topology encompassing 468 points across the eyes, eyebrows, nose, lips, and facial contour.\n\nEach landmark contains normalized x and y screen coordinates as well as a relative z depth value (distance from the camera plane relative to the center of the face). These points can be exported as structured JSON datasets, enabling downstream integration into virtual avatar rigging, expression analysis, and augmented reality filters."
+    },
+    {
+      "id": "implementation",
+      "heading": "Core Implementation & Feature Set",
+      "body": "React-based interactive user interface with Vite tooling\nLocal browser-based inference utilizing TensorFlow.js and WebGL\nIntegration with MediaPipe Face Mesh estimating 468 3D landmarks\nZero-latency webcam stream capture via react-webcam\nHardware-accelerated HTML5 canvas wireframe overlay rendering\nInstant JSON coordinate serialization and export utility\nTFLite to TensorFlow.js weight conversion and validation\nStrict on-device processing guaranteeing total camera privacy",
+      "style": "list",
+      "note": "The project achieves 30+ FPS on standard consumer hardware without requiring external GPU acceleration or cloud compute."
+    },
+    {
+      "id": "challenges",
+      "heading": "Technical Challenges & Performance Considerations",
+      "body": "Maintaining consistent 30+ FPS rendering while executing continuous neural network inference inside JavaScript was the primary engineering challenge. Naive frame processing causes severe garbage collection pauses due to frequent tensor allocations and deallocations.\n\nTo ensure consistent performance, the rendering loop utilizes `tf.tidy()` and manual memory disposal to strictly clean up intermediate tensor allocations after each frame. Frame capture is synchronized with the browser's `requestAnimationFrame` lifecycle, preventing queue buildup when the browser tab loses focus."
+    },
+    {
+      "id": "outcome",
+      "heading": "Outcome & Future Exploration",
+      "body": "FaceMesh AI provides a lightweight, accessible demonstration of client-side edge artificial intelligence. The project confirms that complex computer vision models can run smoothly in consumer web browsers, providing an extensible foundation for interactive web experiences, privacy-first biometric research, and browser-based augmented reality."
+    }
+  ]
+}

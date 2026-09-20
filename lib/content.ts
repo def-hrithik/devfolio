@@ -93,7 +93,7 @@ async function loadWork(slug: string): Promise<Work | null> {
   }
 }
 
-const WORK_SLUGS = ["certchain", "brevitus"] as const;
+const WORK_SLUGS = ["certchain", "brevitus", "facemesh-ai", "pneumo-ai", "customer-churn", "permafrost-ml"] as const;
 export type WorkSlug = (typeof WORK_SLUGS)[number];
 
 export function getAllWorkSlugs(): string[] {

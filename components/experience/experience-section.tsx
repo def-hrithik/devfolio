@@ -1,4 +1,3 @@
-import { cn } from "cn";
 import type { ExperienceItem } from "@/lib/schemas";
 import { SectionHeading } from "@/components/home/section-heading";
 import { ExperienceItemComponent } from "./experience-item";
@@ -16,10 +15,13 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
     >
       <SectionHeading label="Experience" />
 
-      <ol className="relative" aria-label="Experience list">
+      <ol aria-label="Experience list">
         {experience.map((item, index) => (
-          <li key={item.id} className={cn(index < experience.length - 1 && "mb-0")}>
-            <ExperienceItemComponent item={item} isLast={index === experience.length - 1} />
+          <li key={item.id}>
+            <ExperienceItemComponent
+              item={item}
+              isLast={index === experience.length - 1}
+            />
           </li>
         ))}
       </ol>

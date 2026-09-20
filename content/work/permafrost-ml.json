@@ -1,0 +1,140 @@
+{
+  "id": "permafrost-ml",
+  "name": "Permafrost ML Model",
+  "slug": "permafrost-ml",
+  "company": "Climate Analytics Research",
+  "category": "Machine Learning / Climate Analytics",
+  "tagline": "Predicting daily permafrost carbon emissions with interpretable ensemble machine learning",
+  "dates": "2025",
+  "role": "ML Engineer & Data Scientist",
+  "about": "The Permafrost ML Model is a machine learning pipeline that models daily permafrost carbon emissions from environmental and soil parameters. Evaluating Random Forest, Gradient Boosting, and XGBoost with SHAP interpretability, the project explores data-driven approaches to climate change monitoring.",
+  "technologies": [
+    "Python",
+    "Pandas",
+    "NumPy",
+    "Scikit-learn",
+    "XGBoost",
+    "SHAP",
+    "Matplotlib",
+    "Jupyter"
+  ],
+  "github": "https://github.com/def-hrithik/Permafrost-ML-Model",
+  "liveUrl": null,
+  "nextProject": {
+    "slug": "certchain",
+    "name": "CertChain"
+  },
+  "architecture": {
+    "badge": "Ensemble Regression & Explainability",
+    "summary": "A reproducible environmental ML workflow processing multi-source soil, climate, and active-layer metrics through regression algorithms, benchmarked via standard error metrics and interpreted using SHAP feature attribution.",
+    "flows": [
+      {
+        "title": "Path A: Emission Prediction Pipeline",
+        "color": "blue",
+        "nodes": [
+          {
+            "label": "Environmental Dataset",
+            "description": "Soil Temp, Moisture, ALT, TDD",
+            "icon": "database"
+          },
+          {
+            "label": "Data Cleaning & EDA",
+            "description": "Outlier Detection & Imputation",
+            "icon": "layers"
+          },
+          {
+            "label": "Feature Preparation",
+            "description": "Encoding & Scale Normalization",
+            "icon": "code"
+          },
+          {
+            "label": "Ensemble Models",
+            "description": "Random Forest, GB, XGBoost",
+            "icon": "cpu"
+          },
+          {
+            "label": "Emissions Estimate",
+            "description": "Daily CO₂-eq g/m²/day",
+            "icon": "chart"
+          }
+        ]
+      },
+      {
+        "title": "Path B: Explainability & Attribution",
+        "color": "purple",
+        "nodes": [
+          {
+            "label": "Trained Models",
+            "description": "Cross-Validated Regressors",
+            "icon": "cpu"
+          },
+          {
+            "label": "SHAP Explainer",
+            "description": "TreeSHAP Value Computation",
+            "icon": "activity"
+          },
+          {
+            "label": "Feature Impact Plots",
+            "description": "Attribution & Dependence Views",
+            "icon": "monitor"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "overview",
+      "heading": "Overview",
+      "body": "The Permafrost ML Model is an applied environmental machine learning project designed to estimate daily permafrost carbon emissions (measured in CO₂-equivalent g/m²/day) using empirical soil, climatic, and ecological variables.\n\nAs northern latitudes experience accelerated warming, permafrost thaw releases previously sequestered greenhouse gases into the atmosphere. This project evaluates supervised regression algorithms—Random Forest, Gradient Boosting, and XGBoost—and pairs them with SHAP (SHapley Additive exPlanations) to develop an interpretable predictive pipeline for ecological researchers."
+    },
+    {
+      "id": "problem",
+      "heading": "The Problem",
+      "body": "Northern permafrost soils hold an estimated 1,400 to 1,600 billion metric tons of organic carbon—nearly double the quantity currently in Earth's atmosphere. As rising temperatures induce active-layer deepening and thaw slumps, microbial decomposition converts frozen biomass into carbon dioxide and methane.\n\nTraditional physical monitoring relies on flux towers and field expeditions, which are prohibitively costly, sparse, and logistically unviable across millions of square kilometers of remote tundra. Developing reliable statistical and machine learning proxies is crucial for mapping emission risks and anticipating climate feedback loops."
+    },
+    {
+      "id": "solution",
+      "heading": "The Solution & Climate Modeling Approach",
+      "body": "The project develops a modular, reproducible Python machine learning pipeline that:\n\n1. Ingests and standardizes heterogeneous environmental and soil variables.\n2. Performs exploratory analysis to examine non-linear relationships between thermal dynamics and carbon release.\n3. Trains and cross-validates multiple tree-based ensemble regression models.\n4. Benchmarks model accuracy using standard regression metrics: Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and Coefficient of Determination (R²).\n5. Deploys SHAP game-theoretic explainability to interpret the biological and physical drivers behind individual predictions."
+    },
+    {
+      "id": "architecture",
+      "heading": "System Architecture & Data Flows",
+      "body": "The workflow separates data ingestion, feature normalization, ensemble model training, and feature attribution into a deterministic, reproducible research pipeline."
+    },
+    {
+      "id": "pipeline",
+      "heading": "Technical Pipeline & Workflow",
+      "body": "Environmental & Soil Dataset\n        ↓\nData Cleaning & Missing Value Imputation\n        ↓\nExploratory Data Analysis & Correlation Matrix\n        ↓\nFeature Scaling & One-Hot Categorical Encoding\n        ↓\n┌──────────────────────────────────────────────┐\n│ Ensemble Model Exploration                   │\n│ • Random Forest Regressor                    │\n│ • Gradient Boosting Regressor                │\n│ • XGBoost Regressor                          │\n└──────────────────────────────────────────────┘\n        ↓\nModel Benchmarking (RMSE / MAE / R²)\n        ↓\nSHAP Feature Importance & Interpretability Plots",
+      "style": "pipeline"
+    },
+    {
+      "id": "variables",
+      "heading": "Environmental Variables & Target Matrix",
+      "body": "Soil temperature at depth (°C)\nSoil moisture content and hydrological saturation\nVegetation classification type\nActive layer thickness (ALT in cm)\nThaw degree days (cumulative thermal index)\nTarget: Daily permafrost carbon emissions (CO₂-equivalent g/m²/day)",
+      "style": "list",
+      "note": "The model predicts daily permafrost carbon flux based on local ecological conditions without requiring specialized chemical flux sensors."
+    },
+    {
+      "id": "models",
+      "heading": "Model Architecture & Performance Comparison",
+      "body": "Three non-linear regression approaches were selected based on their efficacy with structured tabular data and resistance to overfitting on moderate sample sizes:\n\n- Random Forest: An ensemble of bagged decision trees that provides high variance reduction and baseline robustness against noisy sensor readings.\n- Gradient Boosting: Sequentially corrects residual prediction errors through gradient descent in function space, capturing subtle non-linear environmental thresholds.\n- XGBoost: An optimized distributed gradient boosting library utilizing second-order gradients and tree regularization to prevent overfitting on collinear climate variables.\n\nModels are evaluated across train/test splits using Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R² to quantify explained variance."
+    },
+    {
+      "id": "shap",
+      "heading": "SHAP Explainability & Feature Attribution",
+      "body": "In environmental science, a black-box model is insufficient; scientists must understand why an algorithm predicts elevated carbon flux at a specific site.\n\nThe project integrates TreeSHAP, an algorithm that calculates exact Shapley values from cooperative game theory for tree ensembles. SHAP summary plots reveal global feature hierarchies (identifying whether soil temperature or active layer depth exerts the greatest influence on emissions), while dependence plots illuminate critical inflection points where slight temperature increases trigger exponential emission spikes."
+    },
+    {
+      "id": "challenges",
+      "heading": "Technical Challenges & Ecological Heterogeneity",
+      "body": "A primary challenge in environmental modeling is managing complex collinearities between environmental drivers. For instance, thaw degree days, surface soil temperature, and active layer thickness are strongly correlated yet exhibit distinct seasonal lags.\n\nCareful feature selection and regularization were required to prevent models from assigning arbitrary weights to collinear predictors. Furthermore, ensuring that model predictions remained physiologically plausible under extreme seasonal extremes was paramount."
+    },
+    {
+      "id": "outcome",
+      "heading": "Outcome & Future Geospatial Extensions",
+      "body": "The project delivers a solid, reproducible machine learning workflow demonstrating how data science techniques can be applied to Arctic permafrost research.\n\nDocumented future extensions include integrating satellite remote-sensing datasets (such as Sentinel and Landsat multispectral imagery), deploying LSTM / RNN recurrent neural networks for multi-year temporal time-series forecasting, and expanding target prediction from general CO₂-equivalence to distinct methane (CH₄) flux models."
+    }
+  ]
+}

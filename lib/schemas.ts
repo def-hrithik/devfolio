@@ -73,6 +73,8 @@ export const ProjectSchema = z.object({
   liveUrl: z.string().url().nullable(),
   caseStudyHref: z.string().optional(),
   labsHref: z.string().optional(),
+  year: z.string().optional(),
+  role: z.string().optional(),
   status: z.enum(["completed", "wip"]),
 });
 
@@ -115,6 +117,30 @@ export const LabSchema = z.object({
 export const LabsSchema = z.array(LabSchema);
 export type Lab = z.infer<typeof LabSchema>;
 
+// ─── Architecture (Data-Driven Diagram) ──────────────────────────────────────
+
+export const ArchitectureNodeSchema = z.object({
+  label: z.string(),
+  description: z.string(),
+  icon: z.string().optional(),
+});
+
+export const ArchitectureFlowSchema = z.object({
+  title: z.string(),
+  color: z.enum(["blue", "emerald", "amber", "purple", "rose", "cyan"]).optional(),
+  nodes: z.array(ArchitectureNodeSchema),
+});
+
+export const ArchitectureSchema = z.object({
+  badge: z.string().optional(),
+  summary: z.string().optional(),
+  flows: z.array(ArchitectureFlowSchema),
+});
+
+export type ArchitectureNode = z.infer<typeof ArchitectureNodeSchema>;
+export type ArchitectureFlow = z.infer<typeof ArchitectureFlowSchema>;
+export type Architecture = z.infer<typeof ArchitectureSchema>;
+
 // ─── Work (case study) ───────────────────────────────────────────────────────
 
 export const WorkSchema = z.object({
@@ -122,6 +148,7 @@ export const WorkSchema = z.object({
   name: z.string(),
   slug: z.string(),
   company: z.string(),
+  category: z.string().optional(),
   tagline: z.string(),
   dates: z.string(),
   role: z.string(),
@@ -130,11 +157,13 @@ export const WorkSchema = z.object({
   github: z.string().url(),
   liveUrl: z.string().url().nullable(),
   nextProject: z.object({ slug: z.string(), name: z.string() }).nullable(),
+  architecture: ArchitectureSchema.optional(),
   sections: z.array(
     z.object({
       id: z.string(),
       heading: z.string(),
       body: z.string(),
+      style: z.enum(["default", "pipeline", "list", "metrics"]).optional(),
       note: z.string().optional(),
     })
   ),

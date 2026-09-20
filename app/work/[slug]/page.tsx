@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getWorkBySlug, getAllWorkSlugs } from "@/lib/content";
 import { CaseStudyHeader } from "@/components/work/case-study-header";
 import { CaseStudySection } from "@/components/work/case-study-section";
-import { ArchitectureDiagram } from "@/components/work/architecture-diagram";
+import { SystemArchitecture } from "@/components/work/system-architecture";
 import { NextProjectLink } from "@/components/work/next-project-link";
 
 interface PageProps {
@@ -19,12 +19,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const work = await getWorkBySlug(slug);
 
   if (!work) {
-    return { title: "Not Found" };
+    return { title: "Case Study Not Found" };
   }
 
+  const title = `${work.name} — Engineering Case Study | Hrithik Singh`;
+  const description = work.tagline || work.about;
+
   return {
-    title: work.name,
-    description: work.tagline,
+    title,
+    description,
+    alternates: {
+      canonical: `/work/${work.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `/work/${work.slug}`,
+      siteName: "Hrithik Singh Portfolio",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
@@ -45,21 +63,25 @@ export default async function WorkPage({ params }: PageProps) {
 
       {/* Content sections */}
       {work.sections.map((section, index) => (
-        <div key={section.id} className={index < work.sections.length - 1 ? "border-b border-border/30" : ""}>
+        <div
+          key={section.id}
+          className={index < work.sections.length - 1 ? "border-b border-border/30" : ""}
+        >
           <CaseStudySection
             heading={section.heading}
             body={section.body}
+            style={section.style}
             note={section.note}
           />
-          {section.id === "architecture" && slug === "certchain" && (
-            <div className="mx-auto max-w-3xl px-4 sm:px-6">
-              <ArchitectureDiagram />
+          {section.id === "architecture" && work.architecture && (
+            <div className="mx-auto max-w-3xl px-4 pb-8 sm:px-6">
+              <SystemArchitecture architecture={work.architecture} />
             </div>
           )}
         </div>
       ))}
 
-      {/* Next project */}
+      {/* Next project navigation */}
       {work.nextProject && (
         <NextProjectLink
           slug={work.nextProject.slug}
