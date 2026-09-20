@@ -6,6 +6,7 @@ import {
   getSkillGroups,
 } from "@/lib/content";
 import { Hero } from "@/components/home/hero";
+import { PortfolioCover } from "@/components/home/portfolio-cover";
 import { ExperienceSection } from "@/components/experience/experience-section";
 import { ProjectsSection } from "@/components/projects/projects-section";
 import { SkillsSection } from "@/components/skills/skills-section";
@@ -20,6 +21,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
+      <PortfolioCover />
       <Hero site={site} />
 
       <div className="border-t border-border/50">

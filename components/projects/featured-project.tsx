@@ -73,13 +73,13 @@ export function FeaturedProject({ project, index }: FeaturedProjectProps) {
         {visibleTech.map((tech) => (
           <span
             key={tech}
-            className="inline-flex items-center rounded border border-border/60 bg-muted/40 px-2 py-[3px] font-mono text-[10px] leading-none text-muted-foreground transition-colors duration-150 hover:border-border hover:text-foreground/80"
+            className="inline-flex items-center rounded border border-border/60 bg-muted/40 px-2 py-0.75 font-mono text-[10px] leading-none text-muted-foreground transition-colors duration-150 hover:border-border hover:text-foreground/80"
           >
             {tech}
           </span>
         ))}
         {overflow > 0 && (
-          <span className="inline-flex items-center rounded border border-border/40 bg-muted/20 px-2 py-[3px] font-mono text-[10px] leading-none text-muted-foreground/60">
+          <span className="inline-flex items-center rounded border border-border/40 bg-muted/20 px-2 py-0.75 font-mono text-[10px] leading-none text-muted-foreground/60">
             +{overflow}
           </span>
         )}

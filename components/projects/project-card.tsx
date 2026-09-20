@@ -55,13 +55,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {visibleTech.map((tech) => (
           <span
             key={tech}
-            className="inline-flex items-center rounded border border-border/50 bg-muted/40 px-1.5 py-[3px] font-mono text-[10px] leading-none text-muted-foreground"
+            className="inline-flex items-center rounded border border-border/50 bg-muted/40 px-1.5 py-0.75 font-mono text-[10px] leading-none text-muted-foreground"
           >
             {tech}
           </span>
         ))}
         {overflow > 0 && (
-          <span className="inline-flex items-center rounded border border-border/30 bg-muted/20 px-1.5 py-[3px] font-mono text-[10px] leading-none text-muted-foreground/50">
+          <span className="inline-flex items-center rounded border border-border/30 bg-muted/20 px-1.5 py-0.75 font-mono text-[10px] leading-none text-muted-foreground/50">
             +{overflow}
           </span>
         )}
