@@ -34,7 +34,7 @@ export function ExperienceItemComponent({ item, isLast }: ExperienceItemProps) {
       {!isLast && (
         <div
           aria-hidden="true"
-          className="absolute left-[9px] top-[18px] bottom-0 w-px bg-border"
+          className="absolute left-2.25 top-4.5 bottom-0 w-px bg-border"
         />
       )}
 
@@ -47,7 +47,7 @@ export function ExperienceItemComponent({ item, isLast }: ExperienceItemProps) {
       */}
       <div
         aria-hidden="true"
-        className="relative z-10 mt-[5px] self-start justify-self-center size-[11px] shrink-0 rounded-full border-2 border-border bg-background transition-colors duration-200 group-hover:border-foreground/40"
+        className="relative z-10 mt-1.25 self-start justify-self-center size-2.75 shrink-0 rounded-full border-2 border-border bg-background transition-colors duration-200 group-hover:border-foreground/40"
       />
 
       {/* ── Content ────────────────────────────────────────────────────────── */}
@@ -95,7 +95,7 @@ export function ExperienceItemComponent({ item, isLast }: ExperienceItemProps) {
             {item.technologies.map((tech) => (
               <span
                 key={tech}
-                className="inline-flex items-center rounded border border-border/60 bg-muted/40 px-2 py-[3px] font-mono text-[10px] leading-none text-muted-foreground transition-colors duration-150 hover:border-border hover:text-foreground/80"
+                className="inline-flex items-center rounded border border-border/60 bg-muted/40 px-2 py-0.75 font-mono text-[10px] leading-none text-muted-foreground transition-colors duration-150 hover:border-border hover:text-foreground/80"
               >
                 {tech}
               </span>

@@ -121,7 +121,7 @@ export function SystemArchitecture({ architecture }: SystemArchitectureProps) {
                   const Icon = getIcon(node.icon);
                   return (
                     <Fragment key={node.label}>
-                      <div className="flex w-full flex-1 min-w-[130px] items-center gap-2.5 rounded-md border border-border bg-card px-3 py-2 sm:w-auto">
+                      <div className="flex w-full flex-1 min-w-32.5 items-center gap-2.5 rounded-md border border-border bg-card px-3 py-2 sm:w-auto">
                         <Icon
                           className="size-4 shrink-0 text-muted-foreground"
                           aria-hidden="true"

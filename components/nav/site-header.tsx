@@ -6,6 +6,7 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 import { cn } from "cn";
+import { AnimatedBrand } from "@/components/nav/animated-brand";
 
 const NAV_LINKS = [
   { label: "Projects", href: "/#work" },
@@ -49,12 +50,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4 sm:px-6">
         {/* Wordmark */}
-        <Link
-          href="/"
-          className="font-serif text-base font-semibold tracking-tight text-foreground transition-opacity hover:opacity-70"
-        >
-          Hrithik Singh
-        </Link>
+        <AnimatedBrand />
 
         {/* Nav + Theme */}
         <div className="flex items-center gap-1">

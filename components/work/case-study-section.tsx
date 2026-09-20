@@ -29,7 +29,7 @@ export function CaseStudySection({ heading, body, style, note }: CaseStudySectio
                 className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground"
               >
                 <span
-                  className="mt-[7px] size-1 shrink-0 rounded-full bg-muted-foreground/40"
+                  className="mt-1.75 size-1 shrink-0 rounded-full bg-muted-foreground/40"
                   aria-hidden="true"
                 />
                 {item}

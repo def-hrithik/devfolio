@@ -205,3 +205,18 @@
 .opacity-initial {
   opacity: 0;
 }
+
+/* ─── Animated Brand Wordmark ───────────────────────────────────────────────── */
+
+.animated-brand__layer {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    letter-spacing 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-brand__layer {
+    transition-duration: 0.01ms;
+  }
+}
