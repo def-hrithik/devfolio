@@ -1,0 +1,71 @@
+[
+  {
+    "id": "certchain",
+    "featured": true,
+    "name": "CertChain",
+    "tagline": "Decentralized certificate verification on Ethereum + IPFS",
+    "category": "Blockchain / Full Stack / Web3",
+    "description": "A hybrid on-chain/off-chain decentralized application for issuing and verifying academic certificates. Certificate metadata is hashed and recorded on the Ethereum blockchain, while certificate files are stored through IPFS via Pinata — creating a tamper-evident, independently verifiable credential system.",
+    "problem": "Traditional academic certificates are difficult to verify at scale and can be vulnerable to forgery or unauthorized modification.",
+    "solution": "A decentralized certificate issuance and verification workflow using Ethereum smart contracts for hash storage and IPFS for file persistence.",
+    "technologies": ["Ethereum", "Solidity", "React", "Node.js", "Express", "IPFS", "Pinata", "Ethers.js", "MetaMask", "Tailwind CSS", "Framer Motion"],
+    "github": "https://github.com/def-hrithik/certchain-ethereum-dapp",
+    "liveUrl": null,
+    "caseStudyHref": "/work/certchain",
+    "status": "completed"
+  },
+  {
+    "id": "brevitus",
+    "featured": true,
+    "name": "Brevitus Technology",
+    "tagline": "Modern web platform for courses, internships, and events",
+    "category": "Full-Stack Web Development",
+    "description": "Contributed to a feature-rich web platform during a 3-month internship, building responsive interfaces and interactive user experiences for a platform offering courses, internships, and technical events.",
+    "problem": "Users needed a clean, fast, and engaging platform to discover and access courses, internship opportunities, and technical events.",
+    "solution": "Built responsive UI components and interactive sections using Next.js, TypeScript, Tailwind CSS, and Framer Motion.",
+    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    "github": "https://github.com/def-hrithik/Brevitus_technology",
+    "liveUrl": null,
+    "caseStudyHref": "/work/brevitus",
+    "status": "completed"
+  },
+  {
+    "id": "facemesh-ai",
+    "featured": false,
+    "name": "FaceMesh AI",
+    "tagline": "Real-time facial landmark tracking in the browser",
+    "category": "Computer Vision / Browser AI",
+    "description": "Browser-based real-time facial landmark tracking using MediaPipe Face Mesh and TensorFlow.js. Maps dense facial topology directly on the client — no server round-trips required.",
+    "technologies": ["React", "TensorFlow.js", "MediaPipe", "Vite", "Tailwind CSS", "Framer Motion"],
+    "github": "https://github.com/def-hrithik/Face-MeshAI",
+    "liveUrl": null,
+    "labsHref": "/labs/facemesh-ai",
+    "status": "completed"
+  },
+  {
+    "id": "pneumo-ai",
+    "featured": false,
+    "name": "Pneumo-AI",
+    "tagline": "Chest X-ray classification with VGG19 transfer learning",
+    "category": "Deep Learning / Healthcare AI",
+    "description": "End-to-end deep learning application for chest X-ray classification (NORMAL / PNEUMONIA) using CNN-based VGG19 transfer learning with an interactive Streamlit interface for predictions and visual analytics.",
+    "technologies": ["Python", "TensorFlow", "VGG19", "Transfer Learning", "Streamlit", "Plotly"],
+    "github": "https://github.com/def-hrithik/pneumo-ai",
+    "liveUrl": null,
+    "labsHref": "/labs/pneumo-ai",
+    "status": "completed"
+  },
+  {
+    "id": "customer-churn",
+    "featured": false,
+    "name": "Customer Churn Prediction",
+    "tagline": "ML churn prediction with interactive React analytics dashboard",
+    "category": "Machine Learning / Data Analytics",
+    "description": "ML-based customer churn prediction combined with a React analytics dashboard for risk scoring and data visualization.",
+    "technologies": ["React", "Vite", "Chart.js", "Python", "Scikit-learn", "Axios"],
+    "github": "https://github.com/def-hrithik/Customer_Churn_prediction",
+    "liveUrl": null,
+    "labsHref": "/labs/customer-churn",
+    "status": "completed"
+  }
+]

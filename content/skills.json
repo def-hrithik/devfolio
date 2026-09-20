@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "skills": ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Vite", "Framer Motion"]
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "skills": ["Node.js", "Express.js", "REST APIs"]
+    },
+    {
+      "id": "ai-ml",
+      "label": "AI / ML",
+      "skills": ["Python", "TensorFlow", "TensorFlow.js", "MediaPipe", "Scikit-learn", "XGBoost", "CNN", "Transfer Learning"]
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "skills": ["Data Analytics", "EDA", "Data Visualization", "Statistical Analysis"]
+    },
+    {
+      "id": "blockchain",
+      "label": "Blockchain",
+      "skills": ["Solidity", "Ethereum", "Ethers.js", "MetaMask", "IPFS", "Pinata"]
+    },
+    {
+      "id": "cloud-tools",
+      "label": "Cloud / Tools",
+      "skills": ["IBM Cloud", "IBM Watson", "Git", "GitHub", "Docker", "Jupyter", "Streamlit"]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "certchain",
+  "name": "CertChain",
+  "slug": "certchain",
+  "company": "Personal Project",
+  "tagline": "Decentralized certificate verification on Ethereum + IPFS",
+  "dates": "2025",
+  "role": "Full-Stack Developer & Blockchain Engineer",
+  "about": "CertChain is a hybrid on-chain/off-chain decentralized application for issuing and verifying academic certificates. It combines Ethereum smart contracts with IPFS-backed decentralized storage through Pinata.",
+  "technologies": [
+    "React", "Node.js", "Express", "Ethereum", "Solidity", "Ethers.js",
+    "MetaMask", "IPFS", "Pinata", "Tailwind CSS", "Framer Motion", "PapaParse"
+  ],
+  "github": "https://github.com/def-hrithik/certchain-ethereum-dapp",
+  "liveUrl": null,
+  "nextProject": { "slug": "brevitus", "name": "Brevitus Technology" },
+  "sections": [
+    {
+      "id": "overview",
+      "heading": "Overview",
+      "body": "CertChain is a decentralized application (DApp) for issuing and verifying academic certificates. It uses a hybrid on-chain/off-chain architecture: certificate files are stored on IPFS via Pinata, while their metadata hashes are permanently recorded on the Ethereum blockchain."
+    },
+    {
+      "id": "problem",
+      "heading": "The Problem",
+      "body": "Traditional academic certificates are difficult to verify at scale. Paper certificates can be forged, digital copies can be altered, and the verification process typically requires contacting the issuing institution directly — a slow, manual, and unreliable workflow."
+    },
+    {
+      "id": "why-blockchain",
+      "heading": "Why Blockchain?",
+      "body": "Blockchain provides an immutable, publicly verifiable ledger. Once a certificate hash is written to Ethereum, it cannot be altered without changing the hash — making forgery detectable. The decentralized nature means verification does not depend on any single institution's system being online."
+    },
+    {
+      "id": "architecture",
+      "heading": "System Architecture",
+      "body": "The system has two main data paths. The file path: React Frontend → Express Backend → IPFS/Pinata (file storage). The blockchain path: React Frontend → Ethers.js → Ethereum Smart Contract (hash storage). MetaMask handles wallet connection and transaction signing in the browser."
+    },
+    {
+      "id": "issuance",
+      "heading": "Certificate Issuance",
+      "body": "An administrator enters certificate information and uploads the certificate PDF or image. The backend streams the file to IPFS through Pinata, which returns an immutable CID. Metadata is generated, a SHA-256 hash is calculated, and the Certificate ID plus hash are written to the Ethereum smart contract via a MetaMask-signed transaction."
+    },
+    {
+      "id": "verification",
+      "heading": "Verification",
+      "body": "A user enters a Certificate ID or hash. The system performs a blockchain lookup to retrieve the stored hash, fetches metadata from the backend, validates the SHA-256 hash, and retrieves the original file from IPFS. Three verification layers provide confidence: blockchain reference, SHA-256 metadata hash, and IPFS CID integrity."
+    },
+    {
+      "id": "batch",
+      "heading": "Batch Issuance",
+      "body": "The system supports batch certificate issuance by parsing CSV data with PapaParse. Multiple certificates can be submitted in a single blockchain transaction, reducing gas costs and administrative overhead."
+    },
+    {
+      "id": "security",
+      "heading": "Security & Integrity",
+      "body": "Certificate integrity relies on three independent layers: the Ethereum blockchain reference (immutable hash record), SHA-256 metadata hashing (detects tampering), and IPFS CID integrity (content-addressed storage ensures the retrieved file matches exactly what was stored). A QR code encodes the verification URL for easy physical-to-digital bridging."
+    },
+    {
+      "id": "challenges",
+      "heading": "Technical Challenges",
+      "body": "Coordinating asynchronous operations across three systems — the React frontend, Express backend, and Ethereum node via MetaMask — required careful state management to handle transaction confirmations, IPFS upload progress, and error states gracefully."
+    }
+  ]
+}

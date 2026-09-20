@@ -1,0 +1,12 @@
+{
+  "id": "facemesh-ai",
+  "name": "FaceMesh AI",
+  "category": "Computer Vision / Browser AI",
+  "description": "A real-time browser-based facial landmark tracking system. Uses MediaPipe Face Mesh and TensorFlow.js to map a dense mesh of facial points directly on the client — enabling face tracking, AR overlays, and interactive applications without server round-trips.",
+  "technologies": ["React", "TensorFlow.js", "MediaPipe Face Mesh", "Vite", "Tailwind CSS", "Framer Motion", "react-webcam"],
+  "github": "https://github.com/def-hrithik/Face-MeshAI",
+  "liveUrl": null,
+  "screenshot": null,
+  "technicalTakeaway": "Running MediaPipe inference entirely in the browser via WebGL eliminates latency from server round-trips and keeps user video data private.",
+  "status": "completed"
+}

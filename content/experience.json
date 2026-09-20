@@ -1,0 +1,64 @@
+[
+  {
+    "id": "brevitus",
+    "organization": "Brevitus Technology",
+    "role": "Web Development Intern",
+    "type": "internship",
+    "startDate": "2026-02",
+    "endDate": "2026-04",
+    "displayDuration": "Feb 2026 – Apr 2026 · 3 months",
+    "description": "Contributed to a modern web platform for courses, internships, and technical events, working on responsive interfaces and interactive user experiences.",
+    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    "evidence": { "label": "Experience Letter", "type": "letter" },
+    "repository": "https://github.com/def-hrithik/Brevitus_technology",
+    "caseStudyHref": "/work/brevitus"
+  },
+  {
+    "id": "gdg-mgmcet",
+    "organization": "GDG MGMCET",
+    "role": "Technical Core Member",
+    "type": "community",
+    "startDate": "2025-09",
+    "endDate": "2026-08",
+    "displayDuration": "Sep 2025 – Aug 2026 · 1 year",
+    "description": "Contributed as a Technical Core Member, participating in technical community initiatives and developer-focused activities within the Google Developer Group at MGMCET.",
+    "technologies": [],
+    "evidence": { "label": "Certificate", "type": "certificate" }
+  },
+  {
+    "id": "ecell-mgmcet",
+    "organization": "ECell, MGMCET",
+    "role": "Technical Co-Head",
+    "type": "leadership",
+    "startDate": "2025-07",
+    "endDate": "2026-08",
+    "displayDuration": "Jul 2025 – Aug 2026 · 1 yr 2 months",
+    "description": "Served as Technical Co-Head, contributing to the technical side of the student entrepreneurship community and supporting technology-driven initiatives.",
+    "technologies": []
+  },
+  {
+    "id": "edunet-data",
+    "organization": "Edunet Foundation",
+    "role": "AI and Data Analytics Intern",
+    "type": "internship",
+    "startDate": "2025-08",
+    "endDate": "2025-09",
+    "displayDuration": "Aug 2025 – Sep 2025 · 2 months",
+    "description": "Developed practical exposure to data analytics and Python-based technical workflows.",
+    "technologies": ["Python", "Data Analytics"],
+    "evidence": { "label": "AICTE Certificate", "type": "certificate" }
+  },
+  {
+    "id": "edunet-cloud",
+    "organization": "Edunet Foundation",
+    "role": "AI & Cloud Intern",
+    "type": "internship",
+    "startDate": "2025-07",
+    "endDate": "2025-08",
+    "displayDuration": "Jul 2025 – Aug 2025 · 2 months",
+    "location": "Mumbai, Maharashtra, India",
+    "description": "Gained exposure to IBM Cloud services and IBM Watson technologies.",
+    "technologies": ["IBM Cloud", "IBM Watson"],
+    "evidence": { "label": "Certificate", "type": "certificate" }
+  }
+]

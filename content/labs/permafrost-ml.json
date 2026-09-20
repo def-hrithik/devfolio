@@ -1,0 +1,13 @@
+{
+  "id": "permafrost-ml",
+  "name": "Permafrost ML Model",
+  "category": "Machine Learning / Environmental Data",
+  "description": "A machine learning project exploring permafrost thaw prediction using geospatial and climate data. Applies ensemble models with explainability techniques to understand feature contributions to environmental change predictions.",
+  "technologies": ["Python", "Random Forest", "Gradient Boosting", "XGBoost", "SHAP", "Scikit-learn"],
+  "metrics": ["RMSE", "MAE", "R²"],
+  "github": "https://github.com/def-hrithik/Permafrost-ML-Model",
+  "liveUrl": null,
+  "screenshot": null,
+  "technicalTakeaway": "SHAP values provide interpretable explanations of ensemble model predictions, which is critical in environmental ML where understanding which climate features drive thaw patterns matters as much as prediction accuracy.",
+  "status": "completed"
+}

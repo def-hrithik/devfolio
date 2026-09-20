@@ -1,0 +1,12 @@
+{
+  "id": "customer-churn",
+  "name": "Customer Churn Prediction",
+  "category": "Machine Learning / Data Analytics",
+  "description": "A machine learning application that predicts customer churn risk and presents insights through an interactive React dashboard. Combines a Python ML backend with real-time risk scoring and data visualization.",
+  "technologies": ["Python", "Scikit-learn", "React", "Vite", "React Router", "Chart.js", "React Context", "Axios"],
+  "github": "https://github.com/def-hrithik/Customer_Churn_prediction",
+  "liveUrl": null,
+  "screenshot": null,
+  "technicalTakeaway": "Bridging a Python ML model with a React frontend demonstrates how data science models can be surfaced as usable product interfaces rather than notebooks.",
+  "status": "completed"
+}

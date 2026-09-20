@@ -1,0 +1,41 @@
+{
+  "id": "brevitus",
+  "name": "Brevitus Technology",
+  "slug": "brevitus",
+  "company": "Brevitus Technology",
+  "tagline": "Building a modern web platform for courses, internships, and events",
+  "dates": "Feb 2026 – Apr 2026",
+  "role": "Web Development Intern",
+  "about": "Brevitus Technology is a platform focused on digital solutions, courses, internships, and technical events. During my 3-month internship I contributed to building out the frontend of a modern, responsive web platform.",
+  "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+  "github": "https://github.com/def-hrithik/Brevitus_technology",
+  "liveUrl": null,
+  "nextProject": { "slug": "certchain", "name": "CertChain" },
+  "sections": [
+    {
+      "id": "context",
+      "heading": "Context",
+      "body": "I joined Brevitus Technology as a Web Development Intern for three months, working on the frontend of a platform that aggregates courses, internship listings, and technical events for students and professionals."
+    },
+    {
+      "id": "role",
+      "heading": "My Role",
+      "body": "As a Web Development Intern, I contributed to building responsive UI components and interactive page sections. The work involved translating design requirements into functional Next.js components using TypeScript and Tailwind CSS, with Framer Motion for animations."
+    },
+    {
+      "id": "frontend-architecture",
+      "heading": "Frontend Architecture",
+      "body": "The platform is built with Next.js App Router for server-side rendering and file-based routing. TypeScript provides type safety across components and data flows. Tailwind CSS handles styling through utility classes, and Framer Motion provides smooth animations and transitions."
+    },
+    {
+      "id": "responsive-design",
+      "heading": "Responsive Design",
+      "body": "Components were built mobile-first, with Tailwind's responsive prefixes ensuring consistent layouts across phone, tablet, and desktop viewports. Careful attention was paid to touch targets and readable typography at all screen sizes."
+    },
+    {
+      "id": "challenges",
+      "heading": "Challenges & Learnings",
+      "body": "Working in a professional team codebase required understanding existing patterns and conventions before contributing. This internship strengthened my understanding of production-grade Next.js architecture, collaborative code practices, and building for real users rather than personal projects."
+    }
+  ]
+}

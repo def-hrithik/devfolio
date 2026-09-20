@@ -1,0 +1,23 @@
+{
+  "name": "Hrithik Singh",
+  "headline": "Full-Stack & ML Developer building web applications, AI solutions, and blockchain systems.",
+  "bio": "I'm a CSE (Data Science) undergraduate and aspiring Software Engineer working across full-stack development, machine learning, data, and blockchain. I enjoy turning technical ideas into practical products and exploring emerging technologies through projects, internships, hackathons, and developer communities.",
+  "location": "Mumbai / Navi Mumbai, Maharashtra, India",
+  "college": "MGM College of Engineering and Technology, Navi Mumbai",
+  "openToWork": true,
+  "resumeUrl": null,
+  "bookingUrl": null,
+  "socials": {
+    "github": "https://github.com/def-hrithik",
+    "linkedin": "https://www.linkedin.com/in/hrithik-singh-sheru/",
+    "email": null
+  },
+  "ctaPrimary": { "label": "View My Work", "href": "#work" },
+  "ctaSecondary": { "label": "Let's Connect", "href": "#contact" },
+  "suggestedQuestions": [
+    "Tell me about CertChain",
+    "What are your AI/ML projects?",
+    "What did you do at Brevitus?",
+    "What are your main skills?"
+  ]
+}

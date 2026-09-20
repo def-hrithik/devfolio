@@ -1,0 +1,14 @@
+{
+  "id": "pneumo-ai",
+  "name": "Pneumo-AI",
+  "category": "Deep Learning / Healthcare AI",
+  "description": "An end-to-end deep learning application for chest X-ray classification. Classifies X-rays as NORMAL or PNEUMONIA using a CNN approach with VGG19 transfer learning. Provides an interactive Streamlit interface with predictions, confidence scores, and visual analytics.",
+  "technologies": ["Python", "TensorFlow", "VGG19", "Transfer Learning", "CNN", "Streamlit", "Plotly"],
+  "github": "https://github.com/def-hrithik/pneumo-ai",
+  "liveUrl": null,
+  "screenshot": null,
+  "metric": "~91% test accuracy (project/test result — not a clinically validated diagnostic system)",
+  "technicalTakeaway": "Transfer learning with VGG19 significantly reduces training time and data requirements by leveraging pre-trained ImageNet feature extractors, allowing effective classification from a smaller medical dataset.",
+  "disclaimer": "This is a machine learning project for demonstrating techniques. It is not a clinically validated diagnostic tool.",
+  "status": "completed"
+}
